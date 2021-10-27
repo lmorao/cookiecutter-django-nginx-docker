@@ -46,10 +46,19 @@ cd ../
 
 ## Docker Compose
 
+### First time, add db mount so it is not part of the cointainer
+Run on the target host:
+```
+docker volume create --name=postgres_data
+```
+
+### To build and up, run build.sh that will run docker-compose
 ```
 ./build.sh
 open http://0.0.0.0/admin
 ```
+
+---
 
 # For Later - Authentication
 
