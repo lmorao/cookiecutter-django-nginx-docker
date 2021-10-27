@@ -1,6 +1,10 @@
 # cookiecutter-django-nginx-docker
 
-This assumes you have docker-compose and pyenv to have python pointing to some python 3 version
+## Requirements
+
+This assumes you have:
+* docker-compose 
+* pyenv to have python pointing to some python 3 version
 
 #  Local development
 
@@ -16,47 +20,45 @@ pip install -r requirements.dev
 python manage.py migrate
 python manage.py runserver
 ```
-
 # Production
 
-## First Time
-### production .env
-
-Inside .env.prod:
+## Preparation
 
 1. create a new SECRET_KEY
-2. --change postgress password--
 
-### if using remote
+       vim .env.prod
+2. change postgress password 
 
-inside docker-compose.prod.yaml:
+       vim .env.prod.db
+3. Create a permanent docker volume for postgres
 
-3. remove intro message and remove the "exit 1"
-4. (change remote ip if needed)
+       docker volume create --name=postgres_proj_changeme
+4. If you change the volume name in 3., change the docker-compose.prod.yaml to match, there are two places to change
 
-### django static
+       vim docker-compose.prod.yaml
+5. remove intro message and remove the "exit 1"
 
-5. collect static 
-```
-cd django
-python manage.py collectstatic --no-input --clear
-cd ../
-```
+       vim build.sh
+6. (change remote ip if needed)
 
+       vim build.s
+7. django collect static:
 
-## Docker Compose
+       cd django
+       python manage.py collectstatic --no-input --clear
+       cd ../
 
-### First time, add db mount so it is not part of the cointainer
-Run on the target host:
-```
-docker volume create --name=postgres_data
-```
+---
+## Spinning the docker cointainers
 
-### To build and up, run build.sh that will run docker-compose
-```
-./build.sh
-open http://0.0.0.0/admin
-```
+1. First time, add db mount so it is not part of the cointainer. Run on the target host:
+
+       docker volume create --name=postgres_proj_changeme
+
+2. To build and up, run build.sh that will run docker-compose
+
+       ./build.sh
+       open http://0.0.0.0/admin
 
 ---
 
