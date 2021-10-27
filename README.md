@@ -23,6 +23,7 @@ Inside .env.prod:
 2. -- change postgress password--
 
 ### if using remote
+
 inside docker-compose.prod.yaml
 3. remove intro message and remove the "exit 1"
 4. (change remote ip if needed)
