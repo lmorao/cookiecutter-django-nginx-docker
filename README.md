@@ -1,6 +1,10 @@
 # cookiecutter-django-nginx-docker
 
-# First Steps
+This assumes you have docker-compose and pyenv to have python pointing to some python 3 version
+
+#  Local development
+
+Copy paste the following:
 ```
 python -V
 # 3.6.8
@@ -21,7 +25,7 @@ python manage.py runserver
 Inside .env.prod:
 
 1. create a new SECRET_KEY
-2. -- change postgress password--
+2. --change postgress password--
 
 ### if using remote
 
