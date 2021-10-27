@@ -15,26 +15,26 @@ python manage.py runserver
 
 # Production
 
-# First Time
-## production .env
+## First Time
+### production .env
 
 Inside .env.prod:
 1. create a new SECRET_KEY
 2. change postgress password
 
-## if using remote
+### if using remote
 inside docker-compose.prod.yaml
 3. remove intro message and remove the "exit 1"
 4. change remote ip if needed
 
-## django static
+### django static
 ```
 python manage.py collectstatic --no-input --clear
 ```
 
 Whenever you need to run
 
-## compose
+## Docker Compose
 
 ```
 ./build.sh
