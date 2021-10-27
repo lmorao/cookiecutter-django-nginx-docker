@@ -4,8 +4,8 @@
 ```
 python -V
 # 3.6.8
-python -m venv django
-mv django env
+python -m venv django_env
+mv django_env env
 source env/bin/activate
 cd django
 pip install -r requirements.dev

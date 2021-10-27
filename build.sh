@@ -6,6 +6,7 @@ remove the line 'exit 1'
 "
 REMOTE_HOST=''
 #REMOTE_HOST="-H ssh://username@1.1.1.1"
+exit 1
 
 docker-compose $REMOTE_HOST -f docker-compose.prod.yaml down -v
 docker-compose $REMOTE_HOST -f docker-compose.prod.yaml build
