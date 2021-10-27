@@ -28,7 +28,13 @@ inside docker-compose.prod.yaml
 4. (change remote ip if needed)
 
 ### django static
-5. python manage.py collectstatic --no-input --clear
+5. collect static 
+```
+cd django
+python manage.py collectstatic --no-input --clear
+cd ../
+```
+
 
 ## Docker Compose
 
