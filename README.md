@@ -48,7 +48,7 @@ cd ../
 
 ```
 ./build.sh
-open http://0.0.0.0/
+open http://0.0.0.0/admin
 ```
 
 # For Later - Authentication
