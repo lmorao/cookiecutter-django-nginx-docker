@@ -27,22 +27,25 @@ python manage.py runserver
 1. create a new SECRET_KEY
 
        vim .env.prod
-2. change postgress password 
+2. change the ```DJANGO_ALLOWED_HOSTS``` to include your remote host ip
+
+       vim .env.prod
+3. change postgress password 
 
        vim .env.prod.db
-3. Create a permanent docker volume for postgres
+4. Create a permanent docker volume for postgres
 
        docker volume create --name=postgres_proj_changeme
-4. If you change the volume name in 3., change the docker-compose.prod.yaml to match, there are two places to change
+5. If you change the volume name in 3., change the docker-compose.prod.yaml to match, there are two places to change
 
        vim docker-compose.prod.yaml
-5. remove intro message and remove the "exit 1"
+6. remove intro message and remove the "exit 1"
 
        vim build.sh
-6. (change remote ip if needed)
+7. (change remote ip if needed)
 
        vim build.s
-7. django collect static:
+8. django collect static:
 
        cd django
        python manage.py collectstatic --no-input --clear
@@ -58,8 +61,10 @@ python manage.py runserver
 2. To build and up, run build.sh that will run docker-compose
 
        ./build.sh
-       open http://0.0.0.0/admin
 
+3. run the django command to migrate the database(this might be updated in the future)
+
+4. Go to http://yourip/admin
 ---
 
 # For Later - Authentication
